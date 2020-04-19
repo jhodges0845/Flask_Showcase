@@ -2,12 +2,9 @@ from flask import Blueprint, render_template, url_for, flash, redirect, request,
 from APP.users.forms import (RegistrationForm, LoginForm,
      UpdateAccountForm, RequestResetForm, ResetPasswordForm)
 from APP.models import User
-from APP import db, bcrypt, mail
+from APP import db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
-import secrets
-import os
-from PIL import Image
-from flask_mail import Message
+from APP.users.utils import save_picture, send_reset_email
 
 users = Blueprint('users', __name__)
 
@@ -56,22 +53,7 @@ def logout():
     logout_user()
     return redirect(url_for('users.login'))
 
-def save_picture(form_picture):
 
-    #Rename image#
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(current_app.root_path, 'static/pics', picture_fn)
-
-    #Resize image#
-    output_size = (125, 125)
-    i = Image.open(form_picture)
-    i.thumbnail(output_size)
-
-    #Save Picture#
-    i.save(picture_path)
-    return picture_fn
 
 @users.route('/users/account', methods=['GET', 'POST'])
 @login_required
@@ -93,17 +75,7 @@ def account():
     image_file = url_for('static', filename='pics/' + current_user.image_file)
     return render_template('users/account.html', title='Account', image_file=image_file, form=form)
 
-def send_reset_email(user):
-    token = user.get_reset_token()
-    msg = Message('Passsword Reset Request',
-        sender='Hodges.Showcase@gmail.com',
-        recipients=[user.email])
-    msg.body = f''' To reset your password, visit the following link:
-{url_for('users.reset_token', token=token, _external=True)}
 
-If you did not make this request then ingore this email and no changes will be made.
-'''
-    mail.send(msg)
 
 @users.route('/users/reset_password', methods=['GET', 'POST'])
 def reset_request():
