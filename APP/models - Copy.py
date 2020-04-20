@@ -10,7 +10,6 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class User(db.Model, UserMixin):
-    __tablename__= 'user'
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -35,7 +34,6 @@ class User(db.Model, UserMixin):
         return f"User('{self.username}','{self.email}', '{self.image_file}')"
 
 class Log(db.Model):
-    __tablename__= 'log'
     id = db.Column(db.Integer, primary_key = True)
     comment = db.Column(db.String(500), nullable=False)
     event_datetime = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
