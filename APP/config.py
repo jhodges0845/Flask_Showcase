@@ -1,7 +1,7 @@
 import os
 
 class Config():
-    SECRET_KEY = str(os.environ.get('WEBSITE_KEY'))
+    SECRET_KEY = os.environ.get('WEBSITE_KEY')
     SQLALCHEMY_DATABASE_URI = str(os.environ.get('DATABASE_URI'))
 
     MAIL_SERVER = 'smtp.gmail.com'
