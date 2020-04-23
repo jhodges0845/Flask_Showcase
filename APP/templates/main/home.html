@@ -1,5 +1,54 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h2> Home Page</h2>
+    
+<div class="row">
+    <div class="col-8-sm">
+        <div class="row ">
+
+            <!--Flask Showcase-->
+            <div class="col-6-lg mr-5 pr-5  ">
+                    <div class="bg-dark p-5 text-center ">
+                        <h3 class="text-light">Flask Showcase</h3>
+                        <img class="showcase-img" src="{{ url_for('static', filename='icons/flask_icon.png') }}">      
+                    </div>
+            </div>
+
+            <!--Django Showcase-->
+            <div class="col-6-lg ">
+                <a style="text-decoration: none;" href="https://hodges-django-showcase.herokuapp.com">
+                    <div class="bg-django p-5 text-center ">
+                        <h3>Django Showcase</h3>
+                        <img class="showcase-img" src="/static/icons/django_icon.png">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+
+            <!--Express Showcase-->
+            <div class="col-6-lg mr-5 pr-5  ">
+                <a style="text-decoration: none;" href="#">
+                    <div class="bg-express p-5 text-center">
+                        <h3>Express Showcase</h3>
+                        <img class="showcase-img" src="/static/icons/express_icon.png">
+                    </div>
+                </a>
+            </div>
+
+            <!--ASP.NET CORE Showcase-->
+            <div class="col-6-lg ">
+                <a style="text-decoration: none;" href="#">
+                    <div class="bg-asp p-5 text-center">
+                        <h3>ASP.Net Core Showcase</h3>
+                        <img class="showcase-img" src="/static/icons/asp_core_icon.png">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-4-sm">
+        <h3>Test Side Panel</h3>
+    </div>
+</div>
 {% endblock content %}

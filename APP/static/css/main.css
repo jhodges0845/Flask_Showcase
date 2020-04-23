@@ -7,9 +7,40 @@ body{
 h1, h2, h3, h4, h5, h6 {
     color: #444444;
 }
+.no-underline{
+    text-decoration: none;
+}
 
 .bg-steel {
     background-color: #5f788a;
+}
+
+.bg-django{
+    background-color: #fafafa;
+}
+
+.bg-django:hover, .bg-django:hover h3 {
+    background-color: #19865c;
+    color: white;
+}
+
+.bg-express{
+    background-color: #fafafa;
+}
+
+.bg-express:hover, .bg-express:hover h3 {
+    background-color: #303030;
+    color: #68A063;
+    text-decoration: none;
+}
+.bg-asp{
+    background-color: #fafafa;
+}
+
+.bg-asp:hover, .bg-asp:hover h3{
+    background-color: #421a59;
+    color: #6bbdd6;
+    text-decoration: none;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -49,6 +80,12 @@ a.article-title:hover {
     height:65px;
     width: 65px;
     margin-right:16px;
+}
+
+.showcase-img {
+    height: 125px;
+    width: 225px;
+    margin-right: 16px;
 }
 
 .article-metadata {
