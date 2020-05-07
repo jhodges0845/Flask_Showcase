@@ -7,12 +7,18 @@ body{
 h1, h2, h3, h4, h5, h6 {
     color: #444444;
 }
-.no-underline{
-    text-decoration: none;
-}
 
 .bg-steel {
     background-color: #5f788a;
+}
+
+.bg-flask{
+    background-color: #fafafa;
+}
+
+.bg-flask:hover, .bg-flash:hover h3{
+    background-color: #343a40;
+    color: white;
 }
 
 .bg-django{
@@ -31,7 +37,6 @@ h1, h2, h3, h4, h5, h6 {
 .bg-express:hover, .bg-express:hover h3 {
     background-color: #303030;
     color: #68A063;
-    text-decoration: none;
 }
 .bg-asp{
     background-color: #fafafa;
@@ -40,7 +45,6 @@ h1, h2, h3, h4, h5, h6 {
 .bg-asp:hover, .bg-asp:hover h3{
     background-color: #421a59;
     color: #6bbdd6;
-    text-decoration: none;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -99,7 +103,7 @@ a.article-title:hover {
     text-decoration: none;
 }
 
-.article-svg {
+.article-svg { 
     width: 25px;
     height: 25px;
     vertical-align: middle;
