@@ -52,7 +52,7 @@
     </header>
     </div>
 
-    <!-- Content-->
+    <!-- Flash Message-->
     <div class="container">
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -63,7 +63,19 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-    {% block content %} {% endblock %}
+        
+        <div class="row">
+            <!--Content-->
+            <div class="col-md-10">
+                {% block content %} {% endblock %}
+            </div>
+            
+            <!--Sidebar-->
+            <div class="col-md-2">
+                <h2>Test side panel</h2>
+            </div>
+        </div>
+    
     </div>
 
     <!--Bootstrap 4, JQuery, and Popper-->
